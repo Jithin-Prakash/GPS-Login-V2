@@ -8,30 +8,39 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent implements OnInit{
-  constructor(private loginAuth: AuthService) {}
-  ngOnInit(): void {}
-  title = 'Login';
+  constructor() {}
+  //constructor(private loginAuth: AuthService) {}
+  ngOnInit(): void {
+    
+  }
+  
+  title="Login";
 
   loginForm = new FormGroup({
     username: new FormControl(""),
     password: new FormControl("")
   })
   
+  
 
   isUserValid: boolean = false;
 
   loginSubmitted(){
-    this.loginAuth.loginUser([this.loginForm.value.username!, this.loginForm.value.password!]).subscribe(res => {
-      if(res == "Unsuccessful"){
-        this.isUserValid = false;
-        alert("Login Unsuccessful");
-      }else{
-        this.isUserValid = true;
-        alert("Login Successful");
-      }
-      alert("HI");
-    });
+    // this.loginAuth.loginUser([this.loginForm.value.username!, this.loginForm.value.password!]).subscribe(res => {
+    //   if(res == "Unsuccessful"){
+    //     this.isUserValid = false;
+    //     alert("Login Unsuccessful");
+    //   }else{
+    //     this.isUserValid = true;
+    //     alert("Login Successful");
+    //   }
+    //   alert("HI");
+    // });
+    console.log(this.loginForm);
+    
   }
 
   get Username(): FormControl {
